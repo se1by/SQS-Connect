@@ -1,6 +1,7 @@
 package ninja.seibert.sqsconnect.outbound;
 
 import java.io.PrintWriter;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.resource.ResourceException;
@@ -98,5 +99,33 @@ public class SqsManagedConnectionFactory implements ManagedConnectionFactory, AW
         accessKeyId = ((SqsResourceAdapter) resourceAdapter).getAccessKeyId();
         secretAccessKey = ((SqsResourceAdapter) resourceAdapter).getSecretAccessKey();
         region = ((SqsResourceAdapter) resourceAdapter).getRegion();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        SqsManagedConnectionFactory that = (SqsManagedConnectionFactory) o;
+
+        if (!Objects.equals(accessKeyId, that.accessKeyId)) {
+            return false;
+        }
+        if (!Objects.equals(secretAccessKey, that.secretAccessKey)) {
+            return false;
+        }
+        return Objects.equals(region, that.region);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = accessKeyId.hashCode();
+        result = 31 * result + secretAccessKey.hashCode();
+        result = 31 * result + region.hashCode();
+        return result;
     }
 }
