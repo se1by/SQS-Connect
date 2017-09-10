@@ -5,6 +5,10 @@
     <groupId>ninja.seibert.sqsconnect</groupId>
     <artifactId>sqsconnect</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>SQS-Connect</name>
+
     <build>
         <finalName>SQS-Connect-${project.version}</finalName>
         <plugins>
@@ -27,23 +31,13 @@
             </plugin>
         </plugins>
     </build>
-    <packaging>jar</packaging>
 
-    <name>SQS Connect</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
@@ -53,7 +47,7 @@
         <dependency>
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-java-sdk-sqs</artifactId>
-            <version>1.11.118</version>
+            <version>1.11.192</version>
             <type>jar</type>
         </dependency>
         <dependency>
