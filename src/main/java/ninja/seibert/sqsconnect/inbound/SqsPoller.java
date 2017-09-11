@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.resource.ResourceException;
+import javax.resource.spi.UnavailableException;
 import javax.resource.spi.endpoint.MessageEndpoint;
 import javax.resource.spi.endpoint.MessageEndpointFactory;
 
@@ -20,17 +21,16 @@ public class SqsPoller implements Runnable {
     private static final Method MESSAGE_METHOD;
 
     static {
-        Method MESSAGE_METHOD1;
         try {
-            MESSAGE_METHOD1 = SqsListener.class.getMethod("onMessage", Message.class);
+            MESSAGE_METHOD = SqsListener.class.getMethod("onMessage", Message.class);
         } catch (NoSuchMethodException e) {
             LOGGER.severe("Couldn't find onMessage method of SqsListener!");
-            MESSAGE_METHOD1 = null;
+            throw new RuntimeException(e);
         }
-        MESSAGE_METHOD = MESSAGE_METHOD1;
     }
 
     private MessageEndpointFactory endpointFactory;
+    private MessageEndpoint endpoint;
     private SqsActivationSpec activationSpec;
     private AmazonSQS client;
 
@@ -57,10 +57,15 @@ public class SqsPoller implements Runnable {
         if (messages == null || messages.isEmpty()) {
             return;
         }
-        for (Message message : messages) {
-            MessageEndpoint endpoint;
+        if (endpoint == null) {
             try {
                 endpoint = endpointFactory.createEndpoint(null);
+            } catch (UnavailableException e) {
+                LOGGER.log(Level.SEVERE, "Couldn't create endpoint: ", e);
+            }
+        }
+        for (Message message : messages) {
+            try {
                 endpoint.beforeDelivery(MESSAGE_METHOD);
                 ((SqsListener) endpoint).onMessage(message);
                 endpoint.afterDelivery();
