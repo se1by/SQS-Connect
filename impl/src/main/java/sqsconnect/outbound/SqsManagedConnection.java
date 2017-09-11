@@ -1,4 +1,4 @@
-package ninja.seibert.sqsconnect.outbound;
+package sqsconnect.outbound;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -24,7 +24,8 @@ import com.amazonaws.services.sqs.model.SendMessageBatchResult;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
 import com.amazonaws.services.sqs.model.SendMessageResult;
 
-import ninja.seibert.sqsconnect.SqsResourceAdapter;
+import sqsconnect.SqsResourceAdapter;
+import ninja.seibert.sqsconnect.api.outbound.SqsConnection;
 
 public class SqsManagedConnection implements ManagedConnection, SqsConnection {
     private AmazonSQS client;

@@ -1,9 +1,12 @@
-package ninja.seibert.sqsconnect.outbound;
+package sqsconnect.outbound;
 
 import java.util.logging.Logger;
 
 import javax.resource.ResourceException;
 import javax.resource.spi.ConnectionManager;
+
+import ninja.seibert.sqsconnect.api.outbound.SqsConnection;
+import ninja.seibert.sqsconnect.api.outbound.SqsConnectionFactory;
 
 public class SqsConnectionFactoryImpl implements SqsConnectionFactory {
     private static final Logger LOGGER = Logger.getLogger(SqsConnectionFactoryImpl.class.getName());

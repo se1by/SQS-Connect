@@ -1,4 +1,4 @@
-package ninja.seibert.sqsconnect.outbound;
+package ninja.seibert.sqsconnect.api.outbound;
 
 import java.util.List;
 

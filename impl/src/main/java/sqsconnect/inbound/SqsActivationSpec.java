@@ -1,4 +1,4 @@
-package ninja.seibert.sqsconnect.inbound;
+package sqsconnect.inbound;
 
 import javax.resource.ResourceException;
 import javax.resource.spi.Activation;
@@ -13,7 +13,8 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import lombok.Getter;
 import lombok.Setter;
 
-import ninja.seibert.sqsconnect.SqsResourceAdapter;
+import ninja.seibert.sqsconnect.api.inbound.SqsListener;
+import sqsconnect.SqsResourceAdapter;
 
 @Getter
 @Setter

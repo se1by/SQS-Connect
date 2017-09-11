@@ -1,4 +1,4 @@
-package ninja.seibert.sqsconnect.outbound;
+package sqsconnect.outbound;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import com.amazonaws.services.sqs.model.SendMessageBatchRequestEntry;
 import com.amazonaws.services.sqs.model.SendMessageBatchResult;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
 import com.amazonaws.services.sqs.model.SendMessageResult;
+
+import ninja.seibert.sqsconnect.api.outbound.SqsConnection;
 
 public class SqsConnectionImpl implements SqsConnection {
     private SqsManagedConnection managedConnection;

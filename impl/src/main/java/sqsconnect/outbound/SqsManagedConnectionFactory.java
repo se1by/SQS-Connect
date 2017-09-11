@@ -1,4 +1,4 @@
-package ninja.seibert.sqsconnect.outbound;
+package sqsconnect.outbound;
 
 import java.io.PrintWriter;
 import java.util.Objects;
@@ -22,7 +22,9 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import lombok.Getter;
 import lombok.Setter;
 
-import ninja.seibert.sqsconnect.SqsResourceAdapter;
+import sqsconnect.SqsResourceAdapter;
+import ninja.seibert.sqsconnect.api.outbound.SqsConnection;
+import ninja.seibert.sqsconnect.api.outbound.SqsConnectionFactory;
 
 @Getter
 @Setter

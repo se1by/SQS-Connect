@@ -5,37 +5,41 @@
     <groupId>ninja.seibert</groupId>
     <artifactId>sqsconnect</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <name>SQS-Connect</name>
+    <modules>
+        <module>api</module>
+        <module>impl</module>
+    </modules>
 
-    <build>
-        <finalName>SQS-Connect-${project.version}</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-rar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <warnOnMissingRaXml>false</warnOnMissingRaXml>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>A JCA adapter for Amazon SQS</description>
+    <url>https://github.com/se1by/SQS-Connect</url>
 
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/se1by/SQS-Connect/blob/master/LICENSE</url>
+        </license>
+    </licenses>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <developers>
+        <developer>
+            <name>Jonas Seibert</name>
+            <email>jonas+sqsconnect@seibert.ninja</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/se1by/SQS-Connect.git</connection>
+        <developerConnection>scm:git:ssh://github.com:se1by/SQS-Connect.git</developerConnection>
+        <url>http://github.com/se1by/SQS-Connect/tree/master</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/se1by/SQS-Connect/issues</url>
+    </issueManagement>
 
     <dependencies>
         <dependency>
@@ -49,11 +53,6 @@
             <artifactId>aws-java-sdk-sqs</artifactId>
             <version>1.11.192</version>
             <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.10</version>
         </dependency>
     </dependencies>
 </project>

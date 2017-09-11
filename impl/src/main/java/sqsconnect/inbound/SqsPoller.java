@@ -1,4 +1,4 @@
-package ninja.seibert.sqsconnect.inbound;
+package sqsconnect.inbound;
 
 import java.lang.reflect.Method;
 import java.util.List;
@@ -15,6 +15,8 @@ import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
 import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 import com.amazonaws.services.sqs.model.ReceiveMessageResult;
+
+import ninja.seibert.sqsconnect.api.inbound.SqsListener;
 
 public class SqsPoller implements Runnable {
     private static final Logger LOGGER = Logger.getLogger(SqsPoller.class.getName());

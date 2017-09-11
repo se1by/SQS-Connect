@@ -1,4 +1,4 @@
-package ninja.seibert.sqsconnect;
+package sqsconnect;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,8 +23,8 @@ import javax.transaction.xa.XAResource;
 import lombok.Getter;
 import lombok.Setter;
 
-import ninja.seibert.sqsconnect.inbound.SqsActivationSpec;
-import ninja.seibert.sqsconnect.inbound.SqsPoller;
+import sqsconnect.inbound.SqsActivationSpec;
+import sqsconnect.inbound.SqsPoller;
 
 @Getter
 @Setter
