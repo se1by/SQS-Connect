@@ -32,7 +32,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/se1by/SQS-Connect.git</connection>
-        <developerConnection>scm:git:ssh://github.com:se1by/SQS-Connect.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:se1by/SQS-Connect.git</developerConnection>
         <url>http://github.com/se1by/SQS-Connect/tree/master</url>
     </scm>
 
