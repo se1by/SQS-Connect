@@ -144,12 +144,12 @@ public class SqsManagedConnection implements ManagedConnection, SqsConnection {
 
     @Override
     public SendMessageBatchResult sendMessageBatch(String queueUrl, List<SendMessageBatchRequestEntry> requestEntries) {
-        return sendMessageBatch(queueUrl, requestEntries);
+        return client.sendMessageBatch(queueUrl, requestEntries);
     }
 
     @Override
     public SendMessageBatchResult sendMessageBatch(SendMessageBatchRequest sendMessageBatchRequest) {
-        return sendMessageBatch(sendMessageBatchRequest);
+        return client.sendMessageBatch(sendMessageBatchRequest);
     }
 
     public void removeConnection(SqsConnection connection) {
