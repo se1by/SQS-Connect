@@ -1,5 +1,7 @@
 package ninja.seibert.sqsconnect.outbound;
 
+import javax.resource.ResourceException;
+
 public interface SqsConnectionFactory {
-    SqsConnection getConnection();
+    SqsConnection getConnection() throws ResourceException;
 }

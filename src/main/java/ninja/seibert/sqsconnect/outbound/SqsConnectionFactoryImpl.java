@@ -17,22 +17,22 @@ public class SqsConnectionFactoryImpl implements SqsConnectionFactory {
     }
 
     @Override
-    public SqsConnection getConnection() {
+    public SqsConnection getConnection() throws ResourceException {
         if (connectionManager != null) {
             try {
                 return (SqsConnection) connectionManager.allocateConnection(managedConnectionFactory, null);
             } catch (ResourceException e) {
                 LOGGER.warning("Couldn't allocate connection: " + e.getMessage());
-                e.printStackTrace();
+                throw e;
             }
         } else {
             try {
                 return (SqsConnection) managedConnectionFactory.createManagedConnection(null, null)
                         .getConnection(null, null);
             } catch (ResourceException e) {
-                e.printStackTrace();
+                LOGGER.warning("Couldn't allocate connection: " + e.getMessage());
+                throw e;
             }
         }
-        return null;
     }
 }
