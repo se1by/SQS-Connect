@@ -78,7 +78,7 @@ git clone https://github.com/se1by/SQS-Connect.git
 and executing
 
 ```shell
-mvn clean package rar
+mvn clean package
 ```
 
 in the project root.
