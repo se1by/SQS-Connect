@@ -13,7 +13,6 @@ To use the connector in your project add the following dependency to your pom.xm
     <version>1.0</version>
 </dependency>
 ```
-**Note: This will work once this project is uploaded to maven central. Until then, you'll have to build it yourself!**
 
 After that you should deploy the rar archive to your application server.
 
