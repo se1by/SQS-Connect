@@ -8,7 +8,7 @@ To use the connector in your project add the following dependency to your pom.xm
 
 ```xml
 <dependency>
-    <groupid>ninja.seibert</groupid>
+    <groupId>ninja.seibert</groupId>
     <artifactId>sqsconnect-api</artifactId>
     <version>1.0</version>
 </dependency>
